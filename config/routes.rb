@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts/create'
+
+  get 'posts/destroy'
+
     get 'sessions/new'
 
     resources :users
@@ -11,6 +15,8 @@ Rails.application.routes.draw do
     get    'login'   => 'sessions#new'
     post   'login'   => 'sessions#create'
     delete 'logout'  => 'sessions#destroy'
+
+    resources :posts, only: [:create, :destroy]
 
 
 

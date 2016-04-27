@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    has_many :posts, dependent: :destroy
     before_save { self.email = email.downcase }
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
@@ -7,7 +8,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 255 },
                         format: { with: VALID_EMAIL_REGEX },
                         uniqueness: { case_sensitive: false }
-
-
-
+    def feed
+        Post.where("user_id = ?", id)
+    end
 end
