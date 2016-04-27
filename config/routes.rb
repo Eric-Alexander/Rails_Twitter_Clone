@@ -2,6 +2,9 @@ Rails.application.routes.draw do
     resources :users
     root 'users#index'
   get 'users/index'
+  get 'about'   => 'static_pages#about'
+  get 'help'    => 'static_pages#help'
+  get 'contact' => 'static_pages#contact'
 
   get 'users/new'
 
