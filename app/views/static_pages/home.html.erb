@@ -1,19 +1,4 @@
 
-<% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="post_form">
-        <%= render 'shared/post_form' %>
-      </section>
-    </aside>
-    <h3>Post Feed</h3>
-    <%= render 'shared/feed' %>
-    </div>
-  </div>
-<% else %>
 
 
 
@@ -27,5 +12,3 @@
 
 <%= link_to image_tag("secret.jpg", alt: "Secrets logo"),
             'http://rubyonrails.org/' %>
-
-<% end %>
