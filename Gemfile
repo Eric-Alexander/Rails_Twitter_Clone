@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pg'
 
+gem 'rails_12factor', group: :production
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'database_cleaner'
