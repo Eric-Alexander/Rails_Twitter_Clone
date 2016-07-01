@@ -15,7 +15,7 @@ module SessionsHelper
     def current_user?(user)
         user == current_user
     end
-    # Redirects to stored location (or to the default).
+    # redirects store location or the default url.
     def redirect_back_or(default)
         redirect_to(session[:forwarding_url] || default)
         session.delete(:forwarding_url)
