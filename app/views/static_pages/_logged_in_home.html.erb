@@ -2,11 +2,13 @@
   <aside class="col-md-4">
 <section class="user_info">
 <%= render 'shared/user_info' %>
+<%= render 'shared/stats' %>
     </section>
     <section class="post_form">
 <%= render 'shared/post_form' %> </section>
   </aside>
   <div class="col-md-8">
-    <h3>Micropost Feed</h3>
-<%= render 'shared/feed' %> </div>
+    <h3>Your Feed</h3>
+    <%= render 'shared/feed' %>
+  </div>
 </div>

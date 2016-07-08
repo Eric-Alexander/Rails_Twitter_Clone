@@ -1,4 +1,4 @@
-<h1>Users#show</h1>
+
 <% provide(:title, @user.first_name) %>
 <div class="row">
   <aside class="col-md-4">
@@ -11,8 +11,11 @@
         <%= @user.email.capitalize %>
       </h1>
     </section>
+    <%= render 'shared/stats' %><br>
+    <%= render "follow_form" if logged_in? %>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-4 col-md-offset-2">
+
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">

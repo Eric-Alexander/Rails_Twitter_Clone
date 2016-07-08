@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(first_name:  "Example User",
             last_name:  "Example User",
-             email: "booboo@rails.org",
+             email: "booboo@foobar.com",
              password:              "foobar",
              password_confirmation: "foobar")
 
 40.times do |n|
   first_name  = Faker::Name.first_name
   last_name  = Faker::Name.last_name
-  email = "exampled-#{n+1}@railsz.org"
+  email = "exampled-#{n+1}@foobar.com"
   password = "password"
   User.create!(first_name:  first_name,
                 last_name: last_name,
@@ -29,3 +29,10 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.posts.create!(content: content, title: title) }
 end
+
+users= User.all
+user = users.first
+following = users[ 2 .. 36]
+followers = users[ 3 .. 28 ]
+following.each{|followed| user.follow(followed)}
+followers.each{|follower| follower.follow(user)}
