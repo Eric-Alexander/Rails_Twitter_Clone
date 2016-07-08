@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(first_name:  "Example User",
-            last_name:  "Example User",
+User.create!(first_name:  "John",
+            last_name:  "Doe",
              email: "booboo@foobar.com",
              password:              "foobar",
              password_confirmation: "foobar")
@@ -14,7 +14,7 @@ User.create!(first_name:  "Example User",
 40.times do |n|
   first_name  = Faker::Name.first_name
   last_name  = Faker::Name.last_name
-  email = "exampled-#{n+1}@foobar.com"
+  email = "fake#{n+1}@foobar.com"
   password = "password"
   User.create!(first_name:  first_name,
                 last_name: last_name,
@@ -26,13 +26,16 @@ end
 users = User.order(:created_at).take(6)
 38.times do
     title= Faker::Book.title
-  content = Faker::Lorem.sentence(5)
+  content = Faker::Lorem.sentence(4)
   users.each { |user| user.posts.create!(content: content, title: title) }
 end
 
 users= User.all
 user = users.first
-following = users[ 2 .. 36]
-followers = users[ 3 .. 28 ]
+user2= users.second
+following = users[ 3 .. 36]
+followers = users[ 4 .. 38 ]
 following.each{|followed| user.follow(followed)}
 followers.each{|follower| follower.follow(user)}
+following.each{|followed| user2.follow(followed)}
+followers.each{|follower| follower.follow(user2)}
