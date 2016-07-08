@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   validate :picture_size
   validates :user_id, presence: true
-  validates :title, :content, presence: true
+  validates :content, presence: true
   def feed
       Post.where("user_id = ?", id)
   end
