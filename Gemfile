@@ -20,6 +20,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,6 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 
 gem 'rails_12factor', group: :production
+gem 'puma', group: :production
+
 
 group :test, :development do
   gem 'rspec-rails'
